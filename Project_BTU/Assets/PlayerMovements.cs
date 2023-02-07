@@ -35,6 +35,7 @@ public class PlayerMovements : MonoBehaviour
         animator = GetComponent<Animator>();
 
         //cherche le composant rigidbody 
+        
         rigidbody1 = GetComponent<Rigidbody2D>();
         rigidbody1.Sleep();
 
@@ -84,6 +85,8 @@ public class PlayerMovements : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+
         //création des mouvements static sur les axes
         Vector3 movement = new Vector3(horizontal * runSpeed, vertical * runSpeed, 0.0f);
         transform.position = transform.position + movement * Time.deltaTime;

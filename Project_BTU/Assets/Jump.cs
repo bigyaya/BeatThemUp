@@ -9,8 +9,8 @@ public class Jump : MonoBehaviour
     [SerializeField]
     AnimationCurve _jumpCurve;
 
-    [SerializeField]
-    float _jumpHeight = 3f;
+    //[SerializeField]
+    //float _jumpHeight = 3f;
 
     [SerializeField]
     float _jumpDuration = 3f;

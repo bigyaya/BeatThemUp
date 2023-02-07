@@ -8,10 +8,10 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
-	
+
 
     #region Unity Lifecycle
-void Awake()
+    void Awake()
 {
 
 }
@@ -21,7 +21,7 @@ void Awake()
 
     }
 
- void Update()
+    void Update()
     {
 
     }
@@ -35,7 +35,7 @@ void FixedUpdate()
 
 
     #region Methods
-
+    
     #endregion
 
 
