@@ -20,7 +20,8 @@ public class PlayerMovements : MonoBehaviour
     bool isJumping;
     public float jumpForce = 300;
 
-
+    //Attack
+    bool isAttacking;
 
 
     #endregion
@@ -46,8 +47,22 @@ public class PlayerMovements : MonoBehaviour
 
         animator.SetFloat("RunSpeed", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
 
+        //faire attaquer le personnage
+        if (Input.GetButton("Attack"))
+        {
+            isAttacking = true;
+            if (vertical != 0 || horizontal != 0)
+            {
+                vertical = 0;
+                horizontal = 0;
+                animator.SetFloat("Speed", 0);
 
-        //faire sauter le joueur
+                animator.SetTrigger("AttackCombo");
+            }
+        }
+
+
+        //faire sauter le personnage
 
         if (transform.position.y <= axisY)
         {
