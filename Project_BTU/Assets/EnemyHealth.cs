@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     public int health; // garde une trace de la santée du joueur
     public int maxHealth = 10;
-    public HealthBarBehavior healthbar;
+    //public HealthBarBehaviour healthbar;
 
 
 
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        healthbar.SetHealth(health, maxHealth);
+        //healthbar.SetHealth(health, maxHealth);
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            animator.SetTrigger("IsDead");
+            animator.SetTrigger("Dead");
             //Destroy(gameObject);
         }
     }

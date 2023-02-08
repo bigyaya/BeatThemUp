@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarBehavior : MonoBehaviour
+public class HealthBarBehaviour : MonoBehaviour
 {
     #region Exposed
 
@@ -18,24 +18,24 @@ public class HealthBarBehavior : MonoBehaviour
 
     #region Unity Lifecycle
     void Awake()
-{
-
-}
-
- void Start()
     {
 
     }
 
- void Update()
+    void Start()
+    {
+
+    }
+
+    void Update()
     {
         Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
     }
 
-void FixedUpdate()
-{
+    void FixedUpdate()
+    {
 
-}
+    }
     #endregion
 
 

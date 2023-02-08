@@ -7,6 +7,9 @@ public class PlayerMovements : MonoBehaviour
     #region Exposed
 
     Animator animator;
+    AudioSource punchSound;
+
+
 
     //run
     public int runSpeed = 1;
@@ -17,11 +20,13 @@ public class PlayerMovements : MonoBehaviour
     //jump
     Rigidbody2D rigidbody1;
     float axisY;
-    bool isJumping;
+    bool isJumping = false;
     public float jumpForce = 300;
 
     //Attack
-    bool isAttacking;
+    
+
+    
 
 
     #endregion
@@ -37,7 +42,13 @@ public class PlayerMovements : MonoBehaviour
         //cherche le composant rigidbody 
         
         rigidbody1 = GetComponent<Rigidbody2D>();
-        rigidbody1.Sleep();
+        //rigidbody1.Sleep();
+
+    }
+
+    void Start()
+    {
+        punchSound = GetComponent<AudioSource>();
 
     }
 
@@ -51,7 +62,6 @@ public class PlayerMovements : MonoBehaviour
         //faire attaquer le personnage
         if (Input.GetButton("Attack"))
         {
-            isAttacking = true;
             if (vertical != 0 || horizontal != 0)
             {
                 vertical = 0;
@@ -59,12 +69,12 @@ public class PlayerMovements : MonoBehaviour
                 animator.SetFloat("Speed", 0);
 
                 animator.SetTrigger("AttackCombo");
+                Punch();
             }
         }
 
 
         //faire sauter le personnage
-
         if (transform.position.y <= axisY)
         {
             OnLanding();
@@ -75,10 +85,12 @@ public class PlayerMovements : MonoBehaviour
             axisY = transform.position.y;
             isJumping = true;
             rigidbody1.gravityScale = 1.5f;
-            rigidbody1.WakeUp();
+            //rigidbody1.WakeUp();
             rigidbody1.AddForce(new Vector2(transform.position.x + 7.5f, jumpForce));
             animator.SetBool("IsJumping", isJumping);
         }
+
+        
 
 
     }
@@ -98,6 +110,11 @@ public class PlayerMovements : MonoBehaviour
 
 
     #region Methods
+
+    void Punch()
+    {
+        punchSound.Play();
+    }
 
     private void Flip(float horizontal)
     {

@@ -21,7 +21,6 @@ void Awake()
 
  void Start()
     {
-
     }
 
  void Update()
@@ -47,6 +46,8 @@ void FixedUpdate()
             healthPlayer.TakeDamage(damage);
         }
     }
+    
+
 
     #endregion
 
