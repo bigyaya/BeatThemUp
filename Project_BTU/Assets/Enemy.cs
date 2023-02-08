@@ -16,7 +16,7 @@ public class Enemy : EnemyBase
     private float targetDistance;
 
     Animator animator;
-    AudioSource punchSound;
+    //AudioSource punchSound;
 
 
     #endregion
@@ -32,11 +32,13 @@ public class Enemy : EnemyBase
  void Start()
     {
         animator = GetComponent<Animator>();
-        punchSound = GetComponent<AudioSource>();
+        //punchSound = GetComponent<AudioSource>();
     }
 
  void Update()
     {
+        //pousuit le joueur
+        if (target == null) return;
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
         if (targetDistance < chaseDistance && targetDistance > stopDistance)
         {
@@ -74,13 +76,13 @@ public class Enemy : EnemyBase
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         animator.SetBool("IsWalking", true);
         animator.SetBool("IsAttacking", false);
-        Punch();
+        //Punch();
 
     }
-    void Punch()
-    {
-        punchSound.Play();
-    }
+    //void Punch()
+    //{
+    //    punchSound.Play();
+    //}
     private void stopChasePlayer()
     {
         animator.SetBool("IsAttacking", true);

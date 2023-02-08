@@ -7,7 +7,7 @@ public class PlayerMovements : MonoBehaviour
     #region Exposed
 
     Animator animator;
-    AudioSource punchSound;
+    //AudioSource punchSound;
 
 
 
@@ -48,7 +48,7 @@ public class PlayerMovements : MonoBehaviour
 
     void Start()
     {
-        punchSound = GetComponent<AudioSource>();
+        //punchSound = GetComponent<AudioSource>();
 
     }
 
@@ -69,7 +69,7 @@ public class PlayerMovements : MonoBehaviour
                 animator.SetFloat("Speed", 0);
 
                 animator.SetTrigger("AttackCombo");
-                Punch();
+                //Punch();
             }
         }
 
@@ -111,10 +111,10 @@ public class PlayerMovements : MonoBehaviour
 
     #region Methods
 
-    void Punch()
-    {
-        punchSound.Play();
-    }
+    //void Punch()
+    //{
+    //    punchSound.Play();
+    //}
 
     private void Flip(float horizontal)
     {

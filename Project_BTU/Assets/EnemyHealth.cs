@@ -47,21 +47,24 @@ public class EnemyHealth : MonoBehaviour
 
     #region Methods
 
-    //  le joueur/personnage reçois des dégats
+    //  le personnage reçois des dégats
     public void TakeDamage(int amount)
     {
         health -= amount;
         if (health <= 0)
         {
             animator.SetTrigger("Dead");
-            //Destroy(gameObject);
+            StartCoroutine(WaitForAnimation());
         }
     }
 
-    //private void Destroy(string v)
-    //{
-    //    throw new NotImplementedException();
-    //}
+    //detruit le personnage apres l'animation
+    IEnumerator WaitForAnimation()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        Destroy(gameObject);
+    }
+
 
     #endregion
 
