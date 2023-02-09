@@ -17,25 +17,16 @@ public class HealthBarBehaviour : MonoBehaviour
 
 
     #region Unity Lifecycle
-    void Awake()
-    {
+    
 
-    }
-
-    void Start()
-    {
-
-    }
+    
 
     void Update()
     {
         Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
     }
 
-    void FixedUpdate()
-    {
-
-    }
+    
     #endregion
 
 
