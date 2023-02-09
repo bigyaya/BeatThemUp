@@ -39,8 +39,7 @@ public class PlayerMovements : MonoBehaviour
         //cherche le composant des animations (Animator)
         animator = GetComponent<Animator>();
 
-        //cherche le composant rigidbody 
-        
+        //cherche le composant rigidbody        
         rigidbody1 = GetComponent<Rigidbody2D>();
         //rigidbody1.Sleep();
 
@@ -57,7 +56,13 @@ public class PlayerMovements : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        animator.SetFloat("RunSpeed", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
+        animator.SetFloat("Speed", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
+
+        if (Input.GetButton("Fire1"))
+        {
+            animator.SetFloat("RunSpeed", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
+
+        }
 
         //faire attaquer le personnage
         if (Input.GetButton("Attack"))
@@ -69,12 +74,26 @@ public class PlayerMovements : MonoBehaviour
                 animator.SetFloat("Speed", 0);
 
                 animator.SetTrigger("AttackCombo");
+                //animator.SetBool("IsAttaking", true);
                 //Punch();
             }
         }
+        //if (Input.GetButton("Attack2"))
+        //{
+        //    if (vertical != 0 || horizontal != 0)
+        //    {
+        //        vertical = 0;
+        //        horizontal = 0;
+        //        animator.SetFloat("Speed", 0);
+
+        //        //animator.SetTrigger("AttackCombo");
+        //        animator.SetBool("IsAttaking", true);
+        //        //Punch();
+        //    }
+        //}
 
 
-        //faire sauter le personnage
+        //faire sauter le personnage.
         if (transform.position.y <= axisY)
         {
             OnLanding();

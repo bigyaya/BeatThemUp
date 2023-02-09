@@ -24,7 +24,7 @@ public class HealthPlayer : MonoBehaviour
     {
         //va chercher
         animator = GetComponent<Animator>();
-        //healthBar = GetComponent<Image>();
+        healthBar = GetComponent<Image>();
 
     }
 
@@ -35,8 +35,10 @@ public class HealthPlayer : MonoBehaviour
 
     void Update()
     {
-        healthBar.fillAmount = Mathf.Clamp(Health / maxHealth, 0, 1);
-        //Debug.Log(Mathf.Clamp(Health / maxHealth, 0, 1));
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = Mathf.Clamp(Health / maxHealth, 0, 1);
+        }
     }
 
     void FixedUpdate()
