@@ -36,6 +36,7 @@ public class HealthPlayer : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = Mathf.Clamp(Health / maxHealth, 0, 1);
+        //Debug.Log(Mathf.Clamp(Health / maxHealth, 0, 1));
     }
 
     void FixedUpdate()

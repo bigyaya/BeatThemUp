@@ -90,7 +90,8 @@ public class PlayerMovements : MonoBehaviour
             animator.SetBool("IsJumping", isJumping);
         }
 
-        
+     
+
 
 
     }
