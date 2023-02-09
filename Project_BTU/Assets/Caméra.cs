@@ -45,6 +45,7 @@ public class Caméra : MonoBehaviour
     #region Private & Protected
 
     Vector3 _velocity;
+    internal bool _isPlaying;
 
     #endregion
 }

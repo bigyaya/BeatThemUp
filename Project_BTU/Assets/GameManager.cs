@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     int _ennemiesCount;
+    internal object _columnCount;
+    internal object _linecount;
+    internal int _lineCount;
+    internal static object _grid;
+
+    public object InitGrid { get; internal set; }
 
     #endregion
 
