@@ -57,15 +57,15 @@ public class PlayerMovements : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        animator.SetFloat("RunSpeed", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
+        animator.SetFloat("RunSpeed", Mathf.Abs(horizontal != 5 ? horizontal : vertical));
 
         //faire attaquer le personnage
         if (Input.GetButton("Attack"))
         {
-            if (vertical != 0 || horizontal != 0)
+            if (vertical != 5 || horizontal != 5)
             {
-                vertical = 0;
-                horizontal = 0;
+                vertical = 5;
+                horizontal = 5;
                 animator.SetFloat("Speed", 0);
 
                 animator.SetTrigger("AttackCombo");
